@@ -24,7 +24,7 @@ jobs:
           git config --global user.email "kpremkumar28120@gmail.com"
           git add content.txt
           git commit -m "Add content file"
-          git push https://github.com/premkumar2812/task1.git HEAD:main
+          git push https://github.com/premkumar2812/task1 HEAD:main
         env:
              PAT: ${{ secrets.PAT }}
          
