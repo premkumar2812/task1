@@ -9,6 +9,6 @@ jobs:
     steps:
     - name: Create file
       run: |
-        printf "Hello World" > hw.txt
+        printf "Hello World" > sample.txt
 
  
