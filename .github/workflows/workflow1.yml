@@ -12,8 +12,16 @@ jobs:
 
       - name: Create sample text file
         run: echo this is prem kumar from Genesys chennai > sample.txt
+        
+      - name: Configure Git
+        run: |
+          git config --global user.name premkumar2812
+          git config --global user.email kpremkumar28120@gmail.com
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Add sample text file
+        run: |
+          git add .
+          git commit -m "Add sample text file"
+          git push
+
+
