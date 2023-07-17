@@ -19,6 +19,7 @@ jobs:
         run: |
           git config --global user.email kpremkumar28120@gmail.com
           git config --global user.name premkumar2812
+          git config --global --add safe.directory /github/workspace
           git add file.txt
           git commit -m "Add sample text content"
         
