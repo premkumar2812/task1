@@ -20,6 +20,5 @@ jobs:
         env:
             TOKEN: ${{ secrets.PAT }}
         run: |
-              git add .
               git commit -m "Add sample text file"
 
