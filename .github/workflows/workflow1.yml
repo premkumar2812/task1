@@ -1,25 +1,26 @@
-name: Workflow 1
+name: Trigger Workflow and Replace File Content
 
 on:
   workflow_dispatch:
-  
+
 jobs:
-  add-content:
+  replace-file-content:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Create content file
-        run: echo "hello" > content.txt
-
+      - name: Replace file content
+        run: |
+          echo "Hello Genesys" > sample.txt
+          
       - name: Commit and push changes
         run: |
-          git config --global user.name "premkumar2812"
-          git config --global user.email "kpremkumar28120@gmail.com"
-          git add content.txt
-          git commit -m "Add content file"
+          git config --local user.email "kpremkumar28120@gmail.com"
+          git config --local user.name "premkumar2812"
+          git add sample.txt
+          git commit -m "Update file content"
           git push
-         
+
  
