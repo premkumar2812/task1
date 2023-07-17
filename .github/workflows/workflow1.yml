@@ -9,6 +9,6 @@ jobs:
     steps:
     - name: Create file
       run: |
-        printf "Hello World" > premkumar2812/task1/sample1.txt
+        printf "Hello World" > premkumar2812/task1/sample.txt
 
  
