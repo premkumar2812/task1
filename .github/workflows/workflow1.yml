@@ -15,7 +15,7 @@ jobs:
           git config --global user.name "premkumar2812"
 
       - name: Create sample text file
-        run: echo "this is prem kumar from Genesys chennai" > sample.txt
+        run: printf "this is prem kumar from Genesys Chennai" > sample.txt
       - name: Commit and push changes
         env:
             TOKEN: ${{ secrets.PAT }}
