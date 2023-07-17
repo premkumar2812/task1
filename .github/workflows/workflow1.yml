@@ -1,4 +1,4 @@
-name: Add Content Workflow
+name: Workflow 1
 
 on:
   workflow_dispatch:
