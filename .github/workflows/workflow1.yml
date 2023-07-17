@@ -1,27 +1,28 @@
-name: Workflow 1
+name: Add Content Workflow
+
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  add_content:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Create sample text file
-        run: echo this is prem kumar from Genesys chennai > sample.txt
+      
+      - name: Create file
+        run: |
+          echo "Sample text content" > file.txt
         
-      - name: Configure Git
+      - name: Commit changes
         run: |
-          git config --global user.name premkumar2812
           git config --global user.email kpremkumar28120@gmail.com
-
-      - name: Commit and push changes
-        run: |
-          git add .
-          git commit -m "Add sample text file"
-          git push
-
-
+          git config --global user.name premkumar2812
+          git add file.txt
+          git commit -m "Add sample text content"
+        
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
