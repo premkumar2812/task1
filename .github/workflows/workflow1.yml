@@ -2,11 +2,7 @@ name: Workflow 1
 
 on:
   workflow_dispatch:
-    inputs:
-      content:
-        description: 'Content to add'
-        required: true
-
+  
 jobs:
   add-content:
     runs-on: ubuntu-latest
