@@ -12,6 +12,9 @@ jobs:
         run: |
           file_path="prem.txt"
           echo "This line will be appended to the file." | tee -a "$file_path"
+      - name: Display the contents
+        run: |
+           cat "prem.txt"
       - name: Debug
         run: ls
           
