@@ -30,5 +30,6 @@ jobs:
       - name: Push Docker image
         run: |
           docker premkumar2812/task1repo
+          docker --help
       - name: Run Docker container
         run: docker run premkumar2812/task1repo
