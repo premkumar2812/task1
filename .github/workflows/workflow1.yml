@@ -8,13 +8,6 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
-      - name: Read file content
-        run: |
-          file_path="prem.txt"
-          if [ -f "$file_path" ]; then
-            cat "$file_path"
-          else
-            echo "File not found: $file_path"
       - name: Append to file
         run: |
           file_path="prem.txt"
