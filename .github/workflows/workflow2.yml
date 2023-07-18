@@ -36,6 +36,6 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: premkumar2812/your-docker-image-name:latest
+          tags: task1repo/your-docker-image-name:latest
 
  
