@@ -30,3 +30,5 @@ jobs:
       - name: Push Docker image
         run: |
           docker task1repo/img
+      - name: Run Docker container
+        run: docker run your-docker-registry/your-image-name:latest
