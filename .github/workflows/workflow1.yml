@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Append to file
         run: |
-          file_path="prem.txt"
-          echo "This line will be appended to the file." | tee -a "$file_path"
+          echo "This line will be appended to the file." | tee -a "prem.txt"
+          cat "prem.txt"
       - name: Display the contents
         run: |
            cat "prem.txt"
