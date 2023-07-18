@@ -12,6 +12,11 @@ jobs:
         run: |
           file_path="prem.txt"
           echo "This line will be appended to the file." | tee -a "$file_path"
+          
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update file content via GitHub Actions"
 
 
    
