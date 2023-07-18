@@ -29,4 +29,4 @@ jobs:
            push: true
            tags: your-docker-repo:latest
       env:
-            DOCKER_AUTH_CONFIG: '{"auths":{"https://index.docker.io/v1/":{"auth":"<YOUR_ACCESS_TOKEN>"}}}'
+            DOCKER_AUTH_CONFIG: '{"auths":{"https://index.docker.io/v1/":{"auth":"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"}}}'
