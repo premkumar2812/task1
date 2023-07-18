@@ -5,13 +5,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Create sample text file
-        run: echo "Sample content" > sample.txt
+      - name: Check out the repository
+        uses: actions/checkout@v2
+      - name: Read file content
+        run: |
+          file_path="prem.txt"
+          if [ -f "$file_path" ]; then
+            cat "$file_path"
+          else
+            echo "File not found: $file_path"
+      - name: Append to file
+        run: |
+          file_path="prem.txt"
+          echo "This line will be appended to the file." | tee -a "$file_path"
 
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Add sample text file
+
+   
  
