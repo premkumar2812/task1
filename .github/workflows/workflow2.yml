@@ -29,4 +29,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push your-docker-registry/your-image-name:latest
+          docker task1repo/your-image-name:latest
