@@ -18,11 +18,7 @@ jobs:
       - name: Debug
         run: ls
           
-          
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update file content via GitHub Actions"
+
 
 
    
