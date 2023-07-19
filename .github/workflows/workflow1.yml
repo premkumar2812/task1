@@ -1,23 +1,36 @@
 name: Workflow 1
+
+ 
+
 on:
-  workflow_dispatch:
+  workflow_dispatch
+
+ 
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+ 
+
     steps:
-      - name: Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Append to file
-        run: |
-          echo "This line will be appended to the file." | tee -a "prem.txt"
-          cat "prem.txt"
-      - name: Display the contents
-        run: |
-           cat "prem.txt"
-      - name: Debug
-        run: ls
-          
+
+ 
+
+      - name: Create text file
+        run: echo "Hello, World!" > mytextfile.txt
+
+ 
+
+      - name: Trigger Workflow 2
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
+          repository: Indhu1024/Workflow
+          event-type: trigger-workflow-2
+          client-payload: '{"file_name": "mytextfile.txt"}'
 
 
 
