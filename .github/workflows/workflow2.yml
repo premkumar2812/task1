@@ -31,15 +31,14 @@ jobs:
         run: |
          docker image ls
          realpath my-docker-image
-      #- name: Tag image
-        #run: |
-         #docker tag my-docker-image:latest indhu1024/workflow 
+      - name: Tag image
+        run: |
+         docker tag my-docker-image:latest premkumar2812/task1:newtag 
 
 
       - name: Push Docker image to Docker Hub
         run: |
-           docker tag my-docker-image:latest indhu1024/workflow:newtag
-           docker image push indhu1024/workflow:newtag/my-docker-image:latest
+           docker image push premkumar2812/task1:newtag
 
        # run: docker image push my-docker-image:latest
 #docker tag my-docker-image:latest your-username/your-repo:newtag
