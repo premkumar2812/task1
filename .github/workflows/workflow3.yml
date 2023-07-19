@@ -13,4 +13,4 @@ jobs:
         run: docker image pull premkumar2812/task1:newtag
 
       - name: Run Docker container
-        run: docker run premkumar2812/task1:newtag cat prem.txt
+        run: docker run premkumar2812/task1:newtag 
