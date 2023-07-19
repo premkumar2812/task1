@@ -1,9 +1,6 @@
-name: Scheduled Workflow
-
+name: Demo Workflow 3
 on:
-  schedule:
-    - cron: "*/2 * * * *"
-
+  workflow_dispatch
 jobs:
   run_container:
     name: Run Docker Container and Cat Text File
