@@ -14,5 +14,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.WORKFLOW_TOKEN }}
-          workflow: 'Workflow 1'
+          workflow: Workflow 1
           ref: ${{ github.sha }}
