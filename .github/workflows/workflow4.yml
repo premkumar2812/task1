@@ -1,7 +1,7 @@
 name: Triggering Workflow
 on:
   push:
-    branches:
+    paths:
       - "prem.txt"
 
  
