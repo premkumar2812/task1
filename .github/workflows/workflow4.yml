@@ -1,29 +1,38 @@
-name: Monitor Changes
-
+name: Triggering Workflow
 on:
   push:
-    paths:
-      - 'prem.txt'
+    branches:
+      - main
+
+ 
 
 jobs:
-  check_changes:
+  poll_and_trigger:
     runs-on: ubuntu-latest
 
+ 
+
     steps:
-      - name: Check Out Repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add any additional steps you may need here to run checks or tests based on the changes.
+ 
 
-      - name: Trigger Another Workflow
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const { Octokit } = require('@octokit/core');
-            const token = process.env.WORKFLOW_TOKEN;
-            const octokit = new Octokit({ auth: token });
-            octokit.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'workflow1.yml',
-            });
+      - name: Check for changes in prem.txt
+        id: check_changes
+        run: |
+          git fetch --prune --unshallow origin
+          CHANGES=$(git diff --name-only HEAD~1..HEAD)
+          if [[ $CHANGES == *"prem.txt"* ]]; then
+            echo "Changes in prem.txt detected."
+            echo "::set-output name=changes_detected::true"
+          else
+            echo "No changes in prem.txt."
+            echo "::set-output name=changes_detected::false"
+          fi
+
+ 
+
+      - name: Trigger Workflow 1
+        if: steps.check_changes.outputs.changes_detected == 'true'
+        uses: workflow_dispatch
