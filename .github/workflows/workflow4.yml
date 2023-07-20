@@ -19,6 +19,7 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
+            const { Octokit } = require('@octokit/core');
             const token = process.env.WORKFLOW_TOKEN;
             const octokit = new Octokit({ auth: token });
             octokit.actions.createWorkflowDispatch({
