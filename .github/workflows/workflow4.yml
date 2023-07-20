@@ -16,10 +16,13 @@ jobs:
       # Add any additional steps you may need here to run checks or tests based on the changes.
 
       - name: Trigger Another Workflow
-        uses: actions/workflow-dispatch@v2
+        uses: actions/github-script@v5
         with:
-          workflow: 'workflow1.yml'
-          # You can pass any input parameters to the triggered workflow, if needed.
-          # Example: input1: "value1", input2: "value2"
-        env:
-          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          script: |
+            const token = process.env.WORKFLOW_TOKEN;
+            const octokit = new Octokit({ auth: token });
+            octokit.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'workflow1.yml',
+            });
