@@ -18,7 +18,7 @@ jobs:
       - name: Trigger Another Workflow
         uses: actions/workflow-dispatch@v2
         with:
-          workflow: workflow1.yml
+          workflow: 'workflow1.yml'
           # You can pass any input parameters to the triggered workflow, if needed.
           # Example: input1: "value1", input2: "value2"
         env:
