@@ -7,7 +7,7 @@ on:
  
 
 jobs:
-  poll_and_trigger:
+  trigger_workflow:
     runs-on: ubuntu-latest
 
  
