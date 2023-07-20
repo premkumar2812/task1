@@ -16,11 +16,10 @@ jobs:
       # Add any additional steps you may need here to run checks or tests based on the changes.
 
       - name: Trigger Another Workflow
-        uses: "peter-evans/repository-dispatch@v2"
+        uses: actions/workflow-dispatch@v2
         with:
-          token: ${{ secrets.WORKFLOW_TOKEN }}
-          repository: ${{ github.repository }}
           workflow: workflow1.yml
           # You can pass any input parameters to the triggered workflow, if needed.
           # Example: input1: "value1", input2: "value2"
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
