@@ -4,6 +4,9 @@ name: Workflow 1
 
 on:
   workflow_dispatch
+  repository_dispatch: 
+              types: [trigger-workflow-1]
+
 
  
 
