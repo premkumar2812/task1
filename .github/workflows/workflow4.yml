@@ -16,23 +16,3 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
- 
-
-      - name: Check for changes in prem.txt
-        id: check_changes
-        run: |
-          git fetch --prune --unshallow origin
-          CHANGES=$(git diff --name-only HEAD~1..HEAD)
-          if [[ $CHANGES == *"prem.txt"* ]]; then
-            echo "Changes in prem.txt detected."
-            echo "::set-output name=changes_detected::true"
-          else
-            echo "No changes in prem.txt."
-            echo "::set-output name=changes_detected::false"
-          fi
-
- 
-
-      - name: Trigger Workflow 1
-        if: steps.check_changes.outputs.changes_detected == 'true'
-        uses: workflow_dispatch
