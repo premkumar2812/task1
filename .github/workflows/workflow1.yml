@@ -23,7 +23,7 @@ jobs:
  
 
       - name: Create text file
-        run: echo "Hello, World!" > mytextfile.txt
+        run: echo "Hello, World!" > prem.txt
 
  
 
